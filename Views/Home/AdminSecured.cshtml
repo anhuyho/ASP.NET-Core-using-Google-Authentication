@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "AdminSecured";
+}
+
+<h1>Welcome @User.Identity.Name</h1>
+<h3>You are @User.Claims.FirstOrDefault(c=>c.Type == System.Security.Claims.ClaimTypes.Role)?.Value</h3>
+<ul>
+    @foreach (var claim in User.Claims)
+    {
+        <li>@claim.Type: @claim.Value</li>
+    }
+</ul>
+
+
